@@ -1,8 +1,28 @@
 aid: miyokos
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/miyokos.png
 name: Miyokos
-description: 'Miyokos is a company surfaced as a portfolio company of obvious-ventures and added to the
-  API Evangelist network as a stub for enrichment. Sector: planetary-health. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Miyoko's Creamery (miyokos.com) is a plant-based dairy company in the
+  planetary-health sector, backed by Obvious Ventures, making vegan butter and
+  cheese from cultured cashews, oats, and legumes. The company does not publish a
+  first-party developer REST API; its digital surface is a Shopify-hosted
+  storefront. That storefront exposes a genuine agent-commerce surface: a
+  Universal Commerce Protocol (UCP) merchant profile at /.well-known/ucp, a
+  hosted shopping MCP endpoint for search/cart/checkout, Shopify Customer Account
+  OIDC/OAuth for identity, and an /llms.txt with agent instructions. This profile
+  was enriched by probing that public surface.
 url: https://raw.githubusercontent.com/api-evangelist/miyokos/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,10 +32,16 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
 - Planetary Health
+- Plant-Based
+- Food and Beverage
+- Ecommerce
+- Shopify
+- Agent Commerce
+- UCP
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -25,3 +51,22 @@ maintainers:
 common:
 - type: Website
   url: https://miyokos.com
+- type: PrivacyPolicy
+  url: https://www.miyokos.com/policies/privacy-policy
+- type: TermsOfService
+  url: https://www.miyokos.com/policies/terms-of-service
+- type: WellKnown
+  url: well-known/miyokos-well-known.yml
+- type: LLMsTxt
+  url: llms/miyokos-llms.txt
+- type: MCPServer
+  url: mcp/miyokos-mcp.yml
+- type: Authentication
+  url: authentication/miyokos-authentication.yml
+- type: DomainSecurity
+  url: security/miyokos-domain-security.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 8
+  pass: local-v1
