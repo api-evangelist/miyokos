@@ -1,0 +1,44 @@
+generated: '2026-07-20'
+method: searched
+source: live probes of https://miyokos.com/.well-known/* and /llms.txt
+host: www.miyokos.com
+notes: >-
+  miyokos.com is a Shopify-hosted storefront for Miyoko's Creamery. Its
+  well-known surface is Shopify-provided: OIDC/OAuth for Customer Accounts and a
+  Universal Commerce Protocol (UCP) agent-commerce profile with a hosted MCP
+  endpoint. No first-party REST/OpenAPI developer API is published.
+endpoints:
+- path: /.well-known/openid-configuration
+  status: 200
+  content_type: application/json
+  file: miyokos-openid-configuration.json
+  type: WellKnown
+  note: Shopify Customer Account OIDC issuer https://shopify.com/authentication/5819545
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  content_type: application/json
+  file: miyokos-oauth-authorization-server.json
+  type: WellKnown
+  note: RFC 8414 authorization-server metadata (identical Shopify issuer)
+- path: /.well-known/ucp
+  status: 200
+  content_type: application/json
+  file: miyokos-ucp.json
+  type: WellKnown
+  note: Universal Commerce Protocol merchant profile (versions 2026-04-08, 2026-01-23) exposing a shopping MCP endpoint
+- path: /.well-known/security.txt
+  status: 404
+  type: SecurityTxt
+  note: no security.txt published
+- path: /.well-known/api-catalog
+  status: 404
+  note: not published
+- path: /.well-known/ai-plugin.json
+  status: 404
+  note: not published
+- path: /llms.txt
+  status: 200
+  content_type: text/markdown
+  file: ../llms/miyokos-llms.txt
+  type: LLMsTxt
+  note: Shopify-generated agent instructions (mirrors /agents.md)

@@ -1,0 +1,50 @@
+generated: '2026-07-20'
+method: searched
+source: https://miyokos.com/.well-known/openid-configuration and /.well-known/oauth-authorization-server
+summary: >-
+  Authentication is Shopify Customer Accounts (OpenID Connect / OAuth 2.0).
+  There is no first-party developer API key program; the identity layer is
+  provided by Shopify for the storefront's customer accounts and for UCP
+  agent-commerce authorization.
+schemes:
+- type: openIdConnect
+  name: shopify-customer-account-oidc
+  issuer: https://shopify.com/authentication/5819545
+  authorization_endpoint: https://shopify.com/authentication/5819545/oauth/authorize
+  token_endpoint: https://shopify.com/authentication/5819545/oauth/token
+  end_session_endpoint: https://shopify.com/authentication/5819545/logout
+  jwks_uri: https://shopify.com/authentication/5819545/.well-known/jwks.json
+  response_types_supported:
+  - code
+  grant_types_supported:
+  - authorization_code
+  - refresh_token
+  - 'urn:ietf:params:oauth:grant-type:jwt-bearer'
+  code_challenge_methods_supported:
+  - S256
+  token_endpoint_auth_methods_supported:
+  - client_secret_basic
+  id_token_signing_alg_values_supported:
+  - RS256
+  subject_types_supported:
+  - public
+  scopes_supported:
+  - openid
+  - email
+  - customer-account-api:full
+  - customer-account-mcp-api:full
+  claims_supported:
+  - iss
+  - sub
+  - aud
+  - exp
+  - iat
+  - nonce
+  - sid
+  - email
+  - email_verified
+pkce: required (S256)
+notes: >-
+  Agent commerce (UCP MCP) is unauthenticated for browsing/discovery; checkout
+  requires contemporaneous buyer approval routed through Shop Pay rather than a
+  client credential.

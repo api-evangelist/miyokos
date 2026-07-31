@@ -1,0 +1,60 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.miyokos.com/.well-known/ucp and https://www.miyokos.com/llms.txt
+name: Miyoko's Creamery Shopping (UCP)
+status: live
+transport: mcp
+hosted: true
+endpoint: https://www.miyokos.com/api/ucp/mcp
+protocol: Universal Commerce Protocol (UCP)
+protocol_spec: https://ucp.dev
+supported_versions:
+- '2026-04-08'
+- '2026-01-23'
+authentication: >-
+  Read/browse and discovery are unauthenticated. Checkout requires
+  contemporaneous buyer approval; payment is routed through Shop Pay. The MCP
+  endpoint requires a valid UCP agent profile URI on the request (a bare
+  tools/list without a profile returns error -32001 invalid_profile_url).
+services:
+- id: dev.ucp.shopping
+  transport: mcp
+  endpoint: https://www.miyokos.com/api/ucp/mcp
+  spec: https://ucp.dev/2026-04-08/specification/overview/
+  schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
+- id: dev.ucp.shopping
+  transport: embedded
+  schema: https://ucp.dev/2026-04-08/services/shopping/embedded.openrpc.json
+capabilities:
+- dev.ucp.shopping.catalog.search
+- dev.ucp.shopping.catalog.lookup
+- dev.ucp.shopping.cart
+- dev.ucp.shopping.checkout
+- dev.ucp.shopping.fulfillment
+- dev.ucp.shopping.discount
+- dev.ucp.shopping.order
+- dev.shopify.catalog
+# Tool names as documented in the store's /llms.txt agent flow. The canonical
+# machine schema is the UCP OpenRPC document referenced above; tool schemas are
+# retrieved live via the MCP tools/list method with a valid agent profile.
+tools:
+- name: search_catalog
+  description: Find products matching the buyer's intent.
+  status: documented
+- name: create_cart
+  description: Create a cart and add desired items.
+  status: documented
+- name: create_checkout
+  description: Start the purchase flow.
+  status: documented
+- name: update_checkout
+  description: Set shipping address and method.
+  status: documented
+- name: complete_checkout
+  description: Finalize the purchase (buyer must approve payment).
+  status: documented
+rate_limits: Per-IP rate limiting on the MCP endpoint; back off on HTTP 429.
+notes: >-
+  This is a Shopify-native UCP commerce MCP surface, not a first-party developer
+  MCP server authored by Miyoko's Creamery. Backing store is
+  miyokos-kitchen.myshopify.com.
