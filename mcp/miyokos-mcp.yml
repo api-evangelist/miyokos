@@ -2,7 +2,8 @@ generated: '2026-07-20'
 method: searched
 source: https://www.miyokos.com/.well-known/ucp and https://www.miyokos.com/llms.txt
 name: Miyoko's Creamery Shopping (UCP)
-status: live
+status: published
+status_raw: live
 transport: mcp
 hosted: true
 endpoint: https://www.miyokos.com/api/ucp/mcp
