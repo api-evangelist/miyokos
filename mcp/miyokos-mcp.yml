@@ -12,11 +12,9 @@ protocol_spec: https://ucp.dev
 supported_versions:
 - '2026-04-08'
 - '2026-01-23'
-authentication: >-
-  Read/browse and discovery are unauthenticated. Checkout requires
-  contemporaneous buyer approval; payment is routed through Shop Pay. The MCP
-  endpoint requires a valid UCP agent profile URI on the request (a bare
-  tools/list without a profile returns error -32001 invalid_profile_url).
+authentication: Read/browse and discovery are unauthenticated. Checkout requires contemporaneous buyer
+  approval; payment is routed through Shop Pay. The MCP endpoint requires a valid UCP agent profile URI
+  on the request (a bare tools/list without a profile returns error -32001 invalid_profile_url).
 services:
 - id: dev.ucp.shopping
   transport: mcp
@@ -35,9 +33,6 @@ capabilities:
 - dev.ucp.shopping.discount
 - dev.ucp.shopping.order
 - dev.shopify.catalog
-# Tool names as documented in the store's /llms.txt agent flow. The canonical
-# machine schema is the UCP OpenRPC document referenced above; tool schemas are
-# retrieved live via the MCP tools/list method with a valid agent profile.
 tools:
 - name: search_catalog
   description: Find products matching the buyer's intent.
@@ -55,7 +50,11 @@ tools:
   description: Finalize the purchase (buyer must approve payment).
   status: documented
 rate_limits: Per-IP rate limiting on the MCP endpoint; back off on HTTP 429.
-notes: >-
-  This is a Shopify-native UCP commerce MCP surface, not a first-party developer
-  MCP server authored by Miyoko's Creamery. Backing store is
-  miyokos-kitchen.myshopify.com.
+notes: This is a Shopify-native UCP commerce MCP surface, not a first-party developer MCP server authored
+  by Miyoko's Creamery. Backing store is miyokos-kitchen.myshopify.com.
+deployment:
+  mode: unclear
+  verified: searched
+  tools: 5
+  checked: '2026-08-12'
+  source: catalog MCP census
