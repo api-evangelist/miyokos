@@ -2,11 +2,9 @@ generated: '2026-07-20'
 method: searched
 source: live probes of https://miyokos.com/.well-known/* and /llms.txt
 host: www.miyokos.com
-notes: >-
-  miyokos.com is a Shopify-hosted storefront for Miyoko's Creamery. Its
-  well-known surface is Shopify-provided: OIDC/OAuth for Customer Accounts and a
-  Universal Commerce Protocol (UCP) agent-commerce profile with a hosted MCP
-  endpoint. No first-party REST/OpenAPI developer API is published.
+notes: 'miyokos.com is a Shopify-hosted storefront for Miyoko''s Creamery. Its well-known surface is Shopify-provided:
+  OIDC/OAuth for Customer Accounts and a Universal Commerce Protocol (UCP) agent-commerce profile with
+  a hosted MCP endpoint. No first-party REST/OpenAPI developer API is published.'
 endpoints:
 - path: /.well-known/openid-configuration
   status: 200
@@ -25,7 +23,8 @@ endpoints:
   content_type: application/json
   file: miyokos-ucp.json
   type: WellKnown
-  note: Universal Commerce Protocol merchant profile (versions 2026-04-08, 2026-01-23) exposing a shopping MCP endpoint
+  note: Universal Commerce Protocol merchant profile (versions 2026-04-08, 2026-01-23) exposing a shopping
+    MCP endpoint
 - path: /.well-known/security.txt
   status: 404
   type: SecurityTxt
@@ -42,3 +41,32 @@ endpoints:
   file: ../llms/miyokos-llms.txt
   type: LLMsTxt
   note: Shopify-generated agent instructions (mirrors /agents.md)
+hosts:
+- host: www.miyokos.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: miyokos-openid-configuration.json
+    type: WellKnown
+    content_type: application/json
+    note: Shopify Customer Account OIDC issuer https://shopify.com/authentication/5819545
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: miyokos-oauth-authorization-server.json
+    type: WellKnown
+    content_type: application/json
+    note: RFC 8414 authorization-server metadata (identical Shopify issuer)
+  - path: /.well-known/ucp
+    status: 200
+    file: miyokos-ucp.json
+    type: WellKnown
+    content_type: application/json
+    note: Universal Commerce Protocol merchant profile (versions 2026-04-08, 2026-01-23) exposing a shopping
+      MCP endpoint
+x-shape-fix:
+  converted: '2026-08-20'
+  from: endpoints
+  note: Rewritten into hosts[] -> documents[], the only shape well_known_docs() in score.rb reads. A served
+    .well-known surface recorded in any other shape scores as absent. Promoted ONLY the 2xx rows out of
+    the probe log; non-2xx probes are real negative results and were left in place, not converted into
+    documents.
