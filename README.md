@@ -64,6 +64,88 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Miyokos is a company surfaced as a portfolio company of obvious-ventures and added to the API Evangelist network as a stub for enrichment. Sector: planetary-health. This profile is a lead awaiting the enrichment pipeline.
+Miyoko's Creamery (miyokos.com) is a plant-based dairy company in the planetary-health sector, backed by Obvious Ventures, making vegan butter and cheese from cultured cashews, oats, and legumes. The company does not publish a first-party developer REST API; its digital surface is a Shopify-hosted storefront. That storefront exposes a genuine agent-commerce surface: a Universal Commerce Protocol (UCP) merchant profile at /.well-known/ucp, a hosted shopping MCP endpoint for search/cart/checkout, Shopify Customer Account OIDC/OAuth for identity, and an /llms.txt with agent instructions. This profile was enriched by probing that public surface.
 
-Backed by: obvious-ventures — https://miyokos.com
+**Areas:** Company · Planetary Health · Plant-Based · Food and Beverage · E-Commerce · Shopify · Agentic Commerce · Universal Commerce Protocol
+
+## Miyokos on APIs.io
+
+Everything profiled for Miyokos is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/miyokos/](https://apis.io/providers/miyokos/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [Miyoko's Creamery Shopping (UCP)](https://apis.io/servers/miyokos/miyoko-s-creamery-shopping-ucp/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Miyokos Authentication](https://apis.io/security/miyokos/miyokos-authentication/)
+- [Miyokos Domain Security](https://apis.io/security/miyokos/miyokos-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://miyokos.com)
+- [Terms of service](https://www.miyokos.com/policies/terms-of-service)
+- [Privacy policy](https://www.miyokos.com/policies/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 12.6** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.0 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 11.9 |
+| Access clarity | 21.1 |
+
+**Agent readiness 13.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | platform (partial credit) |
+
+**Regulatory alignment 15.6** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/miyokos/](https://apis.io/providers/miyokos/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Miyokos: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/miyokos/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
